@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, NgForm } from '@angular/forms';
 import { AuthenticationService } from '../authentication/authentication.service';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-header',
@@ -11,27 +12,28 @@ export class HeaderComponent implements OnInit {
 
   model: any = {}
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(
+    public authService: AuthenticationService,
+    private notificationService: NotificationService ) { }
 
   ngOnInit(): void {
   }
 
   login() {
     this.authService.login(this.model).subscribe(next => {
-      console.log('Logged in successfully');
+      this.notificationService.success('Logged in successfully');
     }, error => {
-      console.log('Failed to login', error);
+      this.notificationService.error(error);
     });
   }
 
   loggedIn(){
-    const token = localStorage.getItem('token');
-    return !!token;
+    return this.authService.loggedIn();
   }
 
   logout(){
     localStorage.removeItem('token');
-    console.log('Logged out!');
+    this.notificationService.message('Logged out!');
   }
 
 }
