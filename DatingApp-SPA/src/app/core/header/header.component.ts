@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthenticationService } from '../authentication/authentication.service';
 import { NotificationService } from '../services/notification.service';
 
@@ -14,7 +15,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     public authService: AuthenticationService,
-    private notificationService: NotificationService ) { }
+    private notificationService: NotificationService,
+    private router: Router ) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +26,8 @@ export class HeaderComponent implements OnInit {
       this.notificationService.success('Logged in successfully');
     }, error => {
       this.notificationService.error(error);
+    }, () => {
+      this.router.navigate(['members']);
     });
   }
 
@@ -34,6 +38,7 @@ export class HeaderComponent implements OnInit {
   logout(){
     localStorage.removeItem('token');
     this.notificationService.message('Logged out!');
+    this.router.navigate(['/']);
   }
 
 }

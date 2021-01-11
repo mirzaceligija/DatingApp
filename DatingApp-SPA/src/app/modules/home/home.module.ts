@@ -6,19 +6,26 @@ import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './components/signup/signup.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+import { MessagesComponent } from './components/messages/messages.component';
+import { MemberListComponent } from './components/member-list/member-list.component';
+import { ListsComponent } from './components/lists/lists.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   declarations: [
     SignupComponent,
-    HomeComponent
+    HomeComponent,
+    MessagesComponent,
+    MemberListComponent,
+    ListsComponent
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
     HttpClientModule,
     FormsModule,
+    RouterModule,
   ]
 })
 export class HomeModule { }

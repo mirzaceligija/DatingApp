@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
 import { AuthenticationService } from './authentication/authentication.service';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     CommonModule,
     FormsModule,
     BsDropdownModule.forRoot(),
+    RouterModule,
   ],
   providers: [AuthenticationService],
   exports: [
