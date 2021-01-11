@@ -2,16 +2,23 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
-import { ValueComponent } from './components/value/value.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SignupComponent } from './components/signup/signup.component';
+import { HomeComponent } from './pages/home/home.component';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
-  declarations: [ValueComponent],
+  declarations: [
+    SignupComponent,
+    HomeComponent
+  ],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ]
 })
 export class HomeModule { }
