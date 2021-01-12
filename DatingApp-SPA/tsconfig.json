@@ -1,6 +1,9 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
+  "rules": {
+    "no-string-literal": false,
+  },
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
@@ -27,6 +30,7 @@
   "angularCompilerOptions": {
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": true,
+    "strictPropertyInitialization": false
   }
 }

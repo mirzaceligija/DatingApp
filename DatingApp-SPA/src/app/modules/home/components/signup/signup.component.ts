@@ -25,7 +25,6 @@ export class SignupComponent implements OnInit {
     this.authService.signup(this.model).subscribe(() => {
       this.notificationService.success('Registration successful')
     }, error => {
-      console.log(error)
       this.notificationService.error(error.error.title);
     })
   }
