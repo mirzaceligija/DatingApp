@@ -12,6 +12,7 @@ import { NotificationService } from '../services/notification.service';
 export class HeaderComponent implements OnInit {
 
   model: any = {}
+  photoUrl: string;
 
   constructor(
     public authService: AuthenticationService,
@@ -19,6 +20,9 @@ export class HeaderComponent implements OnInit {
     private router: Router ) { }
 
   ngOnInit(): void {
+    this.authService.currentPhotoUrl.subscribe(photoUrl => {
+      this.photoUrl = photoUrl;
+    })
   }
 
   login() {
@@ -37,6 +41,9 @@ export class HeaderComponent implements OnInit {
 
   logout(){
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.authService.decodedToken = null;
+    this.authService.currentUser = null;
     this.notificationService.message('Logged out!');
     this.router.navigate(['/']);
   }

@@ -14,6 +14,8 @@ import { MemberDetailComponent } from './components/member-detail/member-detail.
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { MemberEditComponent } from './components/member-edit/member-edit.component';
+import { PhotoEditorComponent } from './components/photo-editor/photo-editor.component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { MemberEditComponent } from './components/member-edit/member-edit.compon
     MemberCardComponent,
     MemberDetailComponent,
     MemberEditComponent,
+    PhotoEditorComponent,
   ],
   imports: [
     CommonModule,
@@ -34,7 +37,8 @@ import { MemberEditComponent } from './components/member-edit/member-edit.compon
     RouterModule,
     HttpClientModule,
     NgxGalleryModule,
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    FileUploadModule,
   ]
 })
 export class HomeModule { }
