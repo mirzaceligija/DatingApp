@@ -40,8 +40,8 @@ export class AuthenticationService {
       )
   }
 
-  signup(model: any){
-    return this.http.post(this.baseUrl + 'signup', model);
+  signup(user: User){
+    return this.http.post(this.baseUrl + 'signup', user);
   }
 
   loggedIn() {

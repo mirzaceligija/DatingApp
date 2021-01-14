@@ -1,6 +1,6 @@
 <div class="card mb-4">
     <div class="card-img-wrapper">
-        <img src="{{user.photoUrl}}" class="card-img-top" alt="{{user.nickname}}">
+        <img src="{{user.photoUrl || '../../../../../../../assets/images/user.png'}}" class="card-img-top" alt="{{user.nickname}}">
         <ul class="list-inline member-icons animate text-center">
             <li class="list-inline-item">
                 <button class="btn btn-sm btn-primary" [routerLink]="['/members/', user.id]"><i class="fa fa-user"></i></button>

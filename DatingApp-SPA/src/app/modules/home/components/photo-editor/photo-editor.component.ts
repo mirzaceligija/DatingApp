@@ -15,7 +15,7 @@ export class PhotoEditorComponent implements OnInit {
 
   @Input() photos: Photo[];
   @Output() getMemberPhotoChange = new EventEmitter<string>();
-  uploader:FileUploader = new FileUploader({});
+  uploader:FileUploader;
   hasBaseDropZoneOver:boolean = false;
   baseUrl = environment.apiUrl;
   currentMain: Photo;
@@ -35,21 +35,7 @@ export class PhotoEditorComponent implements OnInit {
   }
 
   initUploader() {
-    this.uploader.onSuccessItem = (item, response, status, headers) => {
-      if(response) {
-        const res: Photo = JSON.parse(response);
-        const photo = {
-          id: res.id,
-          url: res.url,
-          dateAdded: res.dateAdded,
-          description: res.description,
-          isMain: res.isMain
-        };
-        console.log(photo)
-        this.photos.push(photo);
-      }
-    };
-
+    
     this.uploader = new FileUploader({
       url: this.baseUrl + 'users/' + this.authService.decodedToken.nameid +  '/photos',
       authToken: 'Bearer ' + localStorage.getItem('token'),
@@ -61,6 +47,25 @@ export class PhotoEditorComponent implements OnInit {
     });
 
     this.uploader.onAfterAddingFile = (file) => {file.withCredentials = false; };
+
+    this.uploader.onSuccessItem = (item, response, status, headers) => {
+      if(response) {
+        const res: Photo = JSON.parse(response);
+        const photo = {
+          id: res.id,
+          url: res.url,
+          dateAdded: res.dateAdded,
+          description: res.description,
+          isMain: res.isMain
+        };
+        this.photos.push(photo);
+        if(photo.isMain) {
+          this.authService.changeMemberPhoto(photo.url);
+          this.authService.currentUser.photoUrl = photo.url;
+          localStorage.setItem('user', JSON.stringify(this.authService.currentUser));
+        }
+      }
+    };
   }
 
   setMainPhoto(photo: Photo) {
