@@ -5,6 +5,8 @@ import { NotificationService } from 'src/app/core/services/notification.service'
 import { UserService } from 'src/app/core/services/user.service';
 import { User } from 'src/app/shared/models/user';
 
+import { TimeAgoPipe } from 'time-ago-pipe';
+
 @Component({
   selector: 'app-member-detail',
   templateUrl: './member-detail.component.html',
@@ -12,9 +14,9 @@ import { User } from 'src/app/shared/models/user';
 })
 export class MemberDetailComponent implements OnInit {
 
-  user: User;
-  galleryOptions: NgxGalleryOptions[];
-  galleryImages: NgxGalleryImage[];
+  user!: User;
+  galleryOptions!: NgxGalleryOptions[];
+  galleryImages!: NgxGalleryImage[];
 
   constructor(
     private userService: UserService,

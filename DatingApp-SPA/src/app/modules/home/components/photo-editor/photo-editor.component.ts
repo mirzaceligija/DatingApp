@@ -13,12 +13,12 @@ import { environment } from 'src/environments/environment';
 })
 export class PhotoEditorComponent implements OnInit {
 
-  @Input() photos: Photo[];
+  @Input() photos!: Photo[];
   @Output() getMemberPhotoChange = new EventEmitter<string>();
-  uploader:FileUploader;
+  uploader!:FileUploader;
   hasBaseDropZoneOver:boolean = false;
   baseUrl = environment.apiUrl;
-  currentMain: Photo;
+  currentMain!: Photo;
 
   constructor(
     private authService: AuthenticationService,

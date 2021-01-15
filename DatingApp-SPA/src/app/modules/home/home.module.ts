@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
-import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './components/signup/signup.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -17,6 +15,8 @@ import { MemberEditComponent } from './components/member-edit/member-edit.compon
 import { PhotoEditorComponent } from './components/photo-editor/photo-editor.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { CommonModule } from '@angular/common';
+//import { TimeAgoPipe } from 'time-ago-pipe';
 
 @NgModule({
   declarations: [
@@ -29,18 +29,17 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     MemberDetailComponent,
     MemberEditComponent,
     PhotoEditorComponent,
+    //TimeAgoPipe,
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule,
-    HttpClientModule,
-    FormsModule,
     RouterModule,
-    HttpClientModule,
+    HomeRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     NgxGalleryModule,
     TabsModule.forRoot(),
     FileUploadModule,
-    ReactiveFormsModule,
     BsDatepickerModule.forRoot(),
   ]
 })

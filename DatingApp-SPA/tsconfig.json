@@ -32,6 +32,7 @@
     "strictNullChecks": false,
     "strictInputAccessModifiers": true,
     "strictTemplates": true,
+    "skipLibCheck": false,
     "strictPropertyInitialization": false
   }
 }

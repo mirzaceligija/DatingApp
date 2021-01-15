@@ -6,6 +6,8 @@ import { NotificationService } from 'src/app/core/services/notification.service'
 import { UserService } from 'src/app/core/services/user.service';
 import { User } from 'src/app/shared/models/user';
 
+import { TimeAgoPipe } from 'time-ago-pipe';
+
 @Component({
   selector: 'app-member-edit',
   templateUrl: './member-edit.component.html',
@@ -13,10 +15,10 @@ import { User } from 'src/app/shared/models/user';
 })
 export class MemberEditComponent implements OnInit {
 
-  user: User;
-  photoUrl: string;
+  user!: User;
+  photoUrl: string = '';
 
-  @ViewChild('editForm', {static:true}) editForm: NgForm;
+  @ViewChild('editForm', {static:true}) editForm!: NgForm;
   @HostListener('window:beforeunload', ['$event'])
 
   unloadNotification($event: any){
