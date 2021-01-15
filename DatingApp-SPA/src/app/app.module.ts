@@ -16,6 +16,7 @@ import { MemberListResolver } from './core/resolvers/member-list.resolver';
 import { RouterModule } from '@angular/router';
 import { MemberEditResolver } from './core/resolvers/member-edit.resolver';
 import { PreventUnsavedChangesGuard } from './core/guards/prevent-unsaved-changes.guard';
+import { ListResolver } from './core/resolvers/list.resolver';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { PreventUnsavedChangesGuard } from './core/guards/prevent-unsaved-change
     MemberDetailResolver,
     MemberListResolver,
     MemberEditResolver,
+    ListResolver,
     PreventUnsavedChangesGuard,
   ],
   bootstrap: [AppComponent]

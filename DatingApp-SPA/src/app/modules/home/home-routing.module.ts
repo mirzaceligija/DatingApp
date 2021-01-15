@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from 'src/app/core/guards/auth.guard';
 import { PreventUnsavedChangesGuard } from 'src/app/core/guards/prevent-unsaved-changes.guard';
+import { ListResolver } from 'src/app/core/resolvers/list.resolver';
 import { MemberDetailResolver } from 'src/app/core/resolvers/member-detail.resolver';
 import { MemberEditResolver } from 'src/app/core/resolvers/member-edit.resolver';
 import { MemberListResolver } from 'src/app/core/resolvers/member-list.resolver';
@@ -23,7 +24,7 @@ const routes: Routes = [
       { path: 'members/:id', component: MemberDetailComponent, resolve: {user: MemberDetailResolver} },
       { path: 'member/edit', component: MemberEditComponent, resolve: {user: MemberEditResolver}, canDeactivate: [PreventUnsavedChangesGuard]},
       { path: 'messages', component: MessagesComponent },
-      { path: 'lists', component: ListsComponent },
+      { path: 'lists', component: ListsComponent, resolve: {users: ListResolver}},
     ]
   }
 ]
