@@ -17,6 +17,8 @@ import { RouterModule } from '@angular/router';
 import { MemberEditResolver } from './core/resolvers/member-edit.resolver';
 import { PreventUnsavedChangesGuard } from './core/guards/prevent-unsaved-changes.guard';
 import { ListResolver } from './core/resolvers/list.resolver';
+import { MessagesResolver } from './core/resolvers/messages.resolver';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -31,6 +33,7 @@ import { ListResolver } from './core/resolvers/list.resolver';
     CoreModule,
     SharedModule,
     RouterModule,
+    FormsModule,
   ],
   providers: [
     ErrorInterceptorProvider,
@@ -38,6 +41,7 @@ import { ListResolver } from './core/resolvers/list.resolver';
     MemberListResolver,
     MemberEditResolver,
     ListResolver,
+    MessagesResolver,
     PreventUnsavedChangesGuard,
   ],
   bootstrap: [AppComponent]

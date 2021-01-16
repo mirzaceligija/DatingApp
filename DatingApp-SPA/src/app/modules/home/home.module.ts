@@ -18,6 +18,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { MemberMessagesComponent } from './components/member-messages/member-messages.component';
 
 //import { TimeAgoPipe } from 'time-ago-pipe';
 
@@ -32,6 +33,7 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
     MemberDetailComponent,
     MemberEditComponent,
     PhotoEditorComponent,
+    MemberMessagesComponent,
     //TimeAgoPipe,
   ],
   imports: [
